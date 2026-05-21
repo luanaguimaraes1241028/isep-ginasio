@@ -6,14 +6,14 @@
     <title>ISEP Ginásio</title>
 
     <!-- Bootstrap CSS & custom CSS -->
-    <link rel="stylesheet" href="../frontend/assets/bootstrap/bootstrap.min.css"> 
-    <link rel="stylesheet" href="../frontend/assets/css/estilos.css">~
+    <link rel="stylesheet" href="../public/assets/bootstrap/bootstrap.min.css"> 
+    <link rel="stylesheet" href="../public/assets/css/estilos.css">~
 
     <!-- favicon -->
-    <link rel="shortcut icon" href="../frontend/assets/img/gym125.png" type="image/png">
+    <link rel="shortcut icon" href="../public/assets/img/gym125.png" type="image/png">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="../frontend/assets/fontawesome/fontawesome/all.min.css">
+    <link rel="stylesheet" href="../public/assets/fontawesome/fontawesome/all.min.css">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;700&display=swap" rel="stylesheet">
@@ -31,7 +31,7 @@
 
                     <div class="d-flex align-items-center justify-content-center my-4">
                         <!-- Imagem do ginásio + texto -->
-                        <img src="../frontend/assets/img/gym125.png">
+                        <img src="../public/assets/img/gym125.png">
                         <h2><strong>ISEP - Ginásio</strong></h2>
                     </div>
 
