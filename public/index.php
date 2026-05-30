@@ -37,7 +37,7 @@
         </div>
         <!-- Área Cliente -->
         <div  class="nav-cliente">
-            <a href="login_form.html" target="_blank">Área Restrita</a>
+            <a href="login.php" target="_blank">Área Restrita</a>
         </div>
     </nav>
     <!-- Seção "Conteudo da pagina" -->

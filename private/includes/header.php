@@ -28,7 +28,7 @@ require_once __DIR__ . '/../../config/config.php';
     <link rel="stylesheet" href="/isep-ginasio/public/assets/bootstrap/bootstrap.min.css">
     
     <!-- Bootstrap JS and custom JS -->
-    <script src="/isep-ginasio/public/assets/bootstrap/bootstrap.bundle.min.js"></script> 
+    <!--<script src="/isep-ginasio/public/assets/bootstrap/bootstrap.bundle.min.js"></script>-->
 
     <link rel="stylesheet" href="/isep-ginasio/private/assets/app.css">
 
