@@ -24,8 +24,6 @@ if (!empty($_SESSION['server_error'])) {
 }
 ?> 
 <?php include '../private/includes/header.php'; ?>
-<!DOCTYPE html>
-<html lang="pt">
 
 
     <div class="container-fluid mt-5">

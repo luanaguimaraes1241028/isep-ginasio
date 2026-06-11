@@ -1,3 +1,8 @@
+<?
+require_once __DIR__ . '/../../includes/funcoes.php';
+redirect_if_not_logged(); // Redireciona para login se o utilizador não estiver autenticado
+?>
+
 <!DOCTYPE html>
 <html lang="pt">
 <?php include '../../includes/header.php'; ?>

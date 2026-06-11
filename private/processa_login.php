@@ -22,12 +22,6 @@ $username = isset($_POST['text_username']) ? $_POST['text_username'] : '';
 $password = isset($_POST['text_password']) ? $_POST['text_password'] : '';
 
 // --------------------------------------------------------------------
-// APRESENTAÇÃO DE DADOS ENVIADOS (Apenas para testes)
-// --------------------------------------------------------------------
-echo "Utilizador: " . $username . "<br>";
-echo "Password: " . $password . "<br><br>";
-
-// --------------------------------------------------------------------
 // VALIDAÇÃO DOS DADOS
 // --------------------------------------------------------------------
 // CORREÇÃO 3: Este bloco agora está dentro do <?php correto, logo já não fica cinzento!
