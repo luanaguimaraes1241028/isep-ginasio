@@ -5,6 +5,23 @@ redirect_if_not_logged();
 
 <?php include '../../includes/header.php'; ?>
 <?php include '../../includes/nav.php'; ?> 
+
+<?php try {
+ $ligacao = new PDO(
+ "mysql:host=" . MYSQL_HOST . ";dbname=" . MYSQL_DATABASE . ";charset=utf8",
+ MYSQL_USERNAME,
+ MYSQL_PASSWORD
+ );
+ $ligacao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+ $resultados = $ligacao->query("SELECT * FROM clientes")->fetchAll(PDO::FETCH_OBJ);
+ $erro = '';
+} catch (PDOException $err) {
+ $erro = "Aconteceu um erro na ligação.";
+ $resultados = [];
+}
+// Fecha a ligação
+$ligacao = null; ?>
+
 <!DOCTYPE html>
 <html lang="pt">
 
@@ -31,7 +48,13 @@ redirect_if_not_logged();
             </div>
 
             <hr>
-            <p class="text-muted">Não existem clientes registados.</p>
+            <?php if (!empty($erro)) : ?>
+ <p class="text-center text-danger"><?= $erro ?></p>
+<?php else : ?>
+ <?php if (count($resultados) == 0) : ?>
+ <p class="text-muted">Não existem clientes registados.</p>
+ <?php else : ?>
+
             <div class="table-responsive">
                 <table class="table table-bordered table-striped align-middle">
                     <thead class="table-dark">
@@ -41,18 +64,30 @@ redirect_if_not_logged();
                             <th>Data nascimento</th>
                             <th>Email</th>
                             <th>Telefone</th>
-                            <th>Sistema de Saúde</th>
+                            <th>Morada</th>
                             <th class="text-center">Ações</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <?php foreach ($resultados as $cliente) : ?> 
                         <tr>
-                            <td>[Nome Cliente]</td>
-                            <td>[Sexo]</td>
-                            <td>[data_Nasc]</td>
-                            <td>[email]</td>
-                            <td>[Telefone]</td>
-                            <td>[sistema_saude]</td>
+                            <td><?= $cliente->nome ?></td> 
+                            <td class="text-center">
+ <?= $cliente->sexo == 'm' ? 'Masculino' : 'Feminino' ?>
+</td> 
+
+                            <td class="text-center">
+ <?= substr($cliente->data_nascimento, 0, 10) ?>
+</td> 
+                            <td>
+ <?= $cliente->email ?>
+</td> 
+                            <td class="text-center">
+ <?= $cliente->telefone ?>
+</td> 
+                            <td>
+ <?= $cliente->morada . ' - ' . $cliente->cidade ?>
+</td>
                             <td class="text-center">
                                 <a href="detalhes.html" class="btn btn-sm btn-outline-primary me-1"> 
                                     <i class="fa-solid fa-eye"></i>
@@ -65,9 +100,15 @@ redirect_if_not_logged();
                                 </a>
                             </td>
                         </tr>
+                        <?php endforeach; ?> 
                     </tbody>
                 </table>
             </div>
+            <div class="col">
+ <p class="mb-5">Total: <strong> <?= count($resultados) ?> </strong></p>
+</div> 
+            <?php endif; ?> <!-- Fecha o if (count($resultados) == 0) -->
+ <?php endif; ?> <!-- Fecha o if (!empty($erro)) -->
         </div>
     </div>
 </div> 
